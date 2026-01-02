@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/features/login/presentation/screens/forgot_password.dart';
 import 'package:blood_dontating_app/features/login/presentation/screens/registration_screen.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
@@ -67,7 +68,9 @@ class LoginScreen extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(ForgotPassword.route());
+                },
                 child: Text(
                   'Forgot Password?',
                   style: TextStyle(

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
+import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/otp_box.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +17,45 @@ class VerificationPage extends StatefulWidget {
 }
 
 class _VerificationPageState extends State<VerificationPage> {
+  @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
   final List<TextEditingController> otpControllers = List.generate(
     6,
     (index) => TextEditingController(),
   );
   final List<FocusNode> focusNodes = List.generate(6, (index) => FocusNode());
+  int seconds = 30;
+  Timer? timer;
+  void startTimer() {
+    timer?.cancel();
+    seconds = 30;
+    timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (seconds == 0) {
+        t.cancel();
+      } else {
+        setState(() {
+          seconds--;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    for (var controller in otpControllers) {
+      controller.dispose();
+    }
+    for (var node in focusNodes) {
+      node.dispose();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +91,37 @@ class _VerificationPageState extends State<VerificationPage> {
                 );
               }),
             ),
+            const SizedBox(height: 60),
+            Center(
+              child: seconds > 0
+                  ? RichText(
+                      text: TextSpan(
+                        text: "Resend code in  ",
+                        style: AppPallete.subHeadingText,
+                        children: [
+                          TextSpan(
+                            text: '00:$seconds',
+                            style: AppPallete.subHeadingText.copyWith(
+                              color: AppPallete.buttonColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : TextButton(
+                      onPressed: () {
+                        startTimer();
+                      },
+                      child: Text(
+                        'Resend Code',
+                        style: AppPallete.subHeadingText.copyWith(
+                          color: AppPallete.buttonColor,
+                        ),
+                      ),
+                    ),
+            ),
+            Spacer(),
+            AuthButton(onpressed: () {}, title: 'Verify'),
           ],
         ),
       ),

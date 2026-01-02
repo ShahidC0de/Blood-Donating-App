@@ -80,20 +80,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Customfield(hintText: 'Password'),
             const SizedBox(height: 10),
 
-            Align(
-              alignment: Alignment.topRight,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
             const SizedBox(height: 15),
 
             AuthButton(
