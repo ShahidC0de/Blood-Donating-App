@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -37,8 +38,8 @@ class LoginWithIconButton extends StatelessWidget {
                 : Icon(iconData, size: 30),
             Text(
               title,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: AppPallete.backgroundColor,
                 fontSize: 17,
                 fontWeight: FontWeight.w600,
               ),

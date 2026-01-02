@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/login/presentation/screens/login_informative_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Icon(Icons.bloodtype, color: Colors.red, size: 300)),
+      body: Center(
+        child: Icon(Icons.bloodtype, color: AppPallete.buttonColor, size: 300),
+      ),
     );
   }
 }

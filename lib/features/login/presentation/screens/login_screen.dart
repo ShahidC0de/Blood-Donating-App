@@ -1,4 +1,5 @@
 import 'package:blood_dontating_app/features/login/presentation/screens/registration_screen.dart';
+import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/login_icon_button.dart';
 import 'package:flutter/gestures.dart';
@@ -47,19 +48,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.only(left: 30, right: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Type Number',
-                ),
-              ),
-            ),
+            Customfield(hintText: 'Mobile Number'),
             const SizedBox(height: 15),
 
             Text(
@@ -71,19 +60,8 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.only(left: 30, right: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Password',
-                ),
-              ),
-            ),
+            Customfield(hintText: 'Password'),
+
             const SizedBox(height: 10),
 
             Align(
@@ -152,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                         ..onTap = () {
                           Navigator.of(
                             context,
-                          ).push(RegistrationScreen.route());
+                          ).pushReplacement(RegistrationScreen.route());
                         },
                     ),
                   ],

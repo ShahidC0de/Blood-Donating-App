@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/core/theme/app_theme.dart';
 import 'package:blood_dontating_app/features/login/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: AppTheme.lightThemeMode,
       home: const SplashScreen(),
     );
   }

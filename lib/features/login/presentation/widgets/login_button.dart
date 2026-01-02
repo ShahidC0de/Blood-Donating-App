@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
@@ -10,7 +11,7 @@ class AuthButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.red,
+        color: AppPallete.buttonColor,
       ),
       child: ElevatedButton(
         onPressed: onpressed,
@@ -21,8 +22,8 @@ class AuthButton extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: AppPallete.backgroundColor,
             fontSize: 17,
             fontWeight: FontWeight.w600,
           ),
