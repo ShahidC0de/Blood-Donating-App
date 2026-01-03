@@ -6,6 +6,7 @@ class AppPallete {
   static const Color textColor = Colors.black;
   static const Color borderColor = Colors.grey;
   static const Color fieldTextColor = Colors.grey;
+  static const Color lightGreyColor = Colors.blueGrey;
   static const TextStyle headingText = TextStyle(
     color: textColor,
     fontSize: 24,
