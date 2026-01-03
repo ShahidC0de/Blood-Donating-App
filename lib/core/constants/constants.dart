@@ -127,3 +127,5 @@ List<String> cities = [
   "Neelum",
 ];
 List<String> bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+List<String> genders = ['Male', 'Female'];
+List<String> decisions = ['Yes', 'No'];

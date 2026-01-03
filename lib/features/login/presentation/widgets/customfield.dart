@@ -1,9 +1,17 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Customfield extends StatelessWidget {
+  int maxLines = 1;
   final String hintText;
-  const Customfield({super.key, required this.hintText});
+  final TextEditingController? controller;
+  Customfield({
+    super.key,
+    required this.hintText,
+    this.controller,
+    this.maxLines = 1,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +22,9 @@ class Customfield extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(
+        maxLines: maxLines,
+        style: TextStyle(color: AppPallete.fieldTextColor, fontSize: 15),
+        controller: controller,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,
