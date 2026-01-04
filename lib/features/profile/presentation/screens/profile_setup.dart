@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileSetup extends StatefulWidget {
   static route() =>
@@ -55,7 +59,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Almost done! Let\'s set up your profile. It's easy, Just three easy steps",
+              "Almost done! Let's set up your profile. It's easy, Just three easy steps",
               style: AppPallete.subHeadingText,
             ),
             const SizedBox(height: 20),
@@ -360,7 +364,134 @@ class _ProfileSetup2State extends State<ProfileSetup2> {
             ),
             Customfield(hintText: 'Type about yourself', maxLines: 4),
             Spacer(),
-            AuthButton(onpressed: () {}, title: "Next"),
+            AuthButton(
+              onpressed: () {
+                Navigator.push(context, ProfileSetup3.route());
+              },
+              title: "Next",
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileSetup3 extends StatefulWidget {
+  static route() =>
+      MaterialPageRoute(builder: (context) => const ProfileSetup3());
+  const ProfileSetup3({super.key});
+
+  @override
+  State<ProfileSetup3> createState() => _ProfileSetup3State();
+}
+
+class _ProfileSetup3State extends State<ProfileSetup3> {
+  XFile? _pickedImage;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Profile Setup', style: AppPallete.headingText),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            Text(
+              "Ready in a moment! Just a profile photo to complete your profile.",
+              style: AppPallete.subHeadingText,
+            ),
+            const SizedBox(height: 20),
+            Center(
+              child: CircleAvatar(
+                radius: 45,
+                backgroundColor: AppPallete.lightGreyColor,
+                child: Icon(
+                  Icons.person_outline,
+                  size: 40,
+                  color: AppPallete.buttonColor,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            const SizedBox(height: 20),
+
+            InkWell(
+              onTap: () async {
+                final image = await ImagePicker().pickImage(
+                  source: ImageSource.gallery,
+                );
+                if (image != null) {
+                  setState(() {
+                    _pickedImage = image;
+                  });
+                }
+              },
+              child: DottedBorder(
+                color: AppPallete.borderColor,
+                strokeWidth: 1,
+                dashPattern: const [6, 4], // dash length, gap
+                borderType: BorderType.RRect,
+                radius: const Radius.circular(5),
+                child: Container(
+                  width: double.infinity,
+                  height: 200,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _pickedImage != null
+                          ? CircleAvatar(
+                              radius: 50,
+                              backgroundImage: FileImage(
+                                File(_pickedImage!.path),
+                              ),
+                            )
+                          : Icon(
+                              Icons.photo,
+                              size: 50,
+                              color: AppPallete.fieldTextColor,
+                            ),
+                      _pickedImage != null ? SizedBox() : Text('Upload Image'),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Spacer(),
+            AuthButton(onpressed: () {}, title: 'Home'),
+
+            //  Center(
+            //   child: Text(
+            //     'Profile Setup Complete!',
+            //     style: AppPallete.headingText.copyWith(fontSize: 18),
+            //   ),
+            // ),
+
+            // Center(
+            //   child: CircleAvatar(
+            //     radius: 45,
+            //     backgroundColor: AppPallete.lightGreyColor,
+            //     child: Icon(
+            //       Icons.check_circle_outline,
+            //       size: 40,
+            //       color: AppPallete.buttonColor,
+            //     ),
+            //   ),
+            // ),
+            // const SizedBox(height: 10),
+            // Center(
+            //   child: Text(
+            //     'Thank you for completing your profile. You are now ready to explore the app and connect with others.',
+            //     style: AppPallete.subHeadingText,
+            //     textAlign: TextAlign.center,
+            //   ),
+            // ),
           ],
         ),
       ),
