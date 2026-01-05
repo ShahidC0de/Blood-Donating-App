@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
+import 'package:blood_dontating_app/features/home/presentation/screens/home_screen.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -435,7 +436,7 @@ class _ProfileSetup3State extends State<ProfileSetup3> {
               child: DottedBorder(
                 color: AppPallete.borderColor,
                 strokeWidth: 1,
-                dashPattern: const [6, 4], // dash length, gap
+                dashPattern: const [6, 4],
                 borderType: BorderType.RRect,
                 radius: const Radius.circular(5),
                 child: Container(
@@ -464,7 +465,12 @@ class _ProfileSetup3State extends State<ProfileSetup3> {
               ),
             ),
             Spacer(),
-            AuthButton(onpressed: () {}, title: 'Home'),
+            AuthButton(
+              onpressed: () {
+                Navigator.pushReplacement(context, HomeScreen.route());
+              },
+              title: 'Home',
+            ),
 
             //  Center(
             //   child: Text(
