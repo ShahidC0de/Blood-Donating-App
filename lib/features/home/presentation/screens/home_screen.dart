@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:flutter/material.dart';
@@ -108,12 +109,96 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 const SizedBox(height: 20),
-
                 Text(
                   'Activity As',
                   style: AppPallete.headingText.copyWith(fontSize: 17),
                 ),
                 const SizedBox(height: 10),
+                GridView.builder(
+                  shrinkWrap: true,
+
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 4,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    crossAxisCount: 2,
+                    mainAxisExtent: 90,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppPallete.backgroundColor,
+                        border: Border.all(
+                          color: AppPallete.fieldTextColor.withValues(
+                            alpha: 0.5,
+                          ),
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.bloodtype,
+                            color: AppPallete.buttonColor,
+                            size: 45,
+                          ),
+                          SizedBox(width: 5),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Blood Donors',
+                                style: AppPallete.headingText.copyWith(
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Text(
+                                '120 posts',
+                                style: AppPallete.subHeadingText.copyWith(
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+
+                Text(
+                  'Blood Groups',
+                  style: AppPallete.headingText.copyWith(fontSize: 17),
+                ),
+                const SizedBox(height: 10),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: bloodGroupIcons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                  ),
+                  itemBuilder: (context, index) {
+                    final bloodGroupIcon = bloodGroupIcons[index];
+                    return Container(
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: AppPallete.buttonColor,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Image.asset(bloodGroupIcon["icon"]!, scale: 2.5),
+                    );
+                  },
+                ),
               ],
             ),
           ),

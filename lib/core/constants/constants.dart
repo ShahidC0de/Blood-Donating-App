@@ -129,3 +129,13 @@ List<String> cities = [
 List<String> bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 List<String> genders = ['Male', 'Female'];
 List<String> decisions = ['Yes', 'No'];
+final List<Map<String, String>> bloodGroupIcons = [
+  {"label": "A+", "icon": "assets/blood_icons/a_pos.png"},
+  {"label": "A-", "icon": "assets/blood_icons/a_neg.png"},
+  {"label": "AB+", "icon": "assets/blood_icons/ab_pos.png"},
+  {"label": "AB-", "icon": "assets/blood_icons/ab_neg.png"},
+  {"label": "B+", "icon": "assets/blood_icons/b_pos.png"},
+  {"label": "B-", "icon": "assets/blood_icons/b_neg.png"},
+  {"label": "O+", "icon": "assets/blood_icons/o_pos.png"},
+  {"label": "O-", "icon": "assets/blood_icons/o_neg.png"},
+];

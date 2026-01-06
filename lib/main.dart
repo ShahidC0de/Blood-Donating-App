@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Blood Care, Donating App',
       theme: AppTheme.lightThemeMode,
       home: const SplashScreen(),
     );
