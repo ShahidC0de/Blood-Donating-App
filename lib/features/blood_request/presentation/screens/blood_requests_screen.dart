@@ -1,4 +1,6 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
+import 'package:blood_dontating_app/features/home/presentation/domain/blood_request_model.dart';
+import 'package:blood_dontating_app/features/home/presentation/screens/posted_details_screen.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +55,28 @@ class BloodNeededScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16.0, top: 16.0),
-                    child: BloodPostWidget(),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PostedDetailsScreen.route(
+                            BloodPostModel(
+                              postId: '123',
+                              userId: '321',
+                              imagePath: 'assets/images/savelives.png',
+                              contactPerson: 'contactPerson',
+                              contactNumber: 'contactNumber',
+                              quantityNeeded: 1,
+                              city: 'city',
+                              bloodType: 'bloodType',
+                              hospitalName: 'hospitalName',
+                              additionalNotes: 'additionalNotes',
+                            ),
+                          ),
+                        );
+                      },
+                      child: BloodPostWidget(),
+                    ),
                   );
                 },
               ),

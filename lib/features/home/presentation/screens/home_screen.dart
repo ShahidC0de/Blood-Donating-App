@@ -1,6 +1,5 @@
 import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
-import 'package:blood_dontating_app/features/home/presentation/screens/blood_needed_scree.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/activity_widget.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
@@ -176,7 +175,14 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(context, activitiesIcons[index]["route"]!);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return activitiesIcons[index]["screen"]!;
+                          },
+                        ),
+                      );
                     },
                     child: ActivityWidget(
                       title: activitiesIcons[index]["label"]!,
