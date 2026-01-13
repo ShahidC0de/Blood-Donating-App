@@ -1,3 +1,7 @@
+import 'package:blood_dontating_app/features/home/presentation/screens/blood_needed_scree.dart';
+import 'package:blood_dontating_app/features/home/presentation/screens/post_request_screen.dart';
+import 'package:flutter/material.dart';
+
 List<String> cities = [
   "Karachi",
   "Islamabad",
@@ -138,4 +142,30 @@ final List<Map<String, String>> bloodGroupIcons = [
   {"label": "B-", "icon": "assets/blood_icons/b_neg.png"},
   {"label": "O+", "icon": "assets/blood_icons/o_pos.png"},
   {"label": "O-", "icon": "assets/blood_icons/o_neg.png"},
+];
+final List<Map<String, dynamic>> activitiesIcons = [
+  {
+    "label": "Blood Donors",
+    "subtitle": "120 posts",
+    "icon": Icons.bloodtype,
+    "route": CreatePostScreen.route(),
+  },
+  {
+    "label": "Blood Requests",
+    "subtitle": "50 posts",
+    "icon": Icons.request_page,
+    "route": BloodNeededScreen.route(),
+  },
+  {
+    "label": "Create Post",
+    "subtitle": "New post",
+    "icon": Icons.post_add,
+    "route": CreatePostScreen.route(),
+  },
+  {
+    "label": "Blood Given",
+    "subtitle": "100 donations",
+    "icon": Icons.done_all,
+    "route": CreatePostScreen.route(),
+  },
 ];
