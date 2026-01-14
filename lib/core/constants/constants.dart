@@ -1,5 +1,6 @@
 import 'package:blood_dontating_app/features/blood_donors/presentation/screens/blood_donors_screen.dart';
 import 'package:blood_dontating_app/features/blood_request/presentation/screens/blood_requests_screen.dart';
+import 'package:blood_dontating_app/features/create_post/presentation/screens/create_post_screen.dart';
 import 'package:flutter/material.dart';
 
 List<String> cities = [
@@ -160,7 +161,7 @@ final List<Map<String, dynamic>> activitiesIcons = [
     "label": "Create Post",
     "subtitle": "New post",
     "icon": Icons.post_add,
-    "screen": BloodNeededScreen(),
+    "screen": CreatePostScreen(),
   },
   {
     "label": "Blood Given",

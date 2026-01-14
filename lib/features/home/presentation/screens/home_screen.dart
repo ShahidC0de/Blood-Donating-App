@@ -3,6 +3,7 @@ import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/activity_widget.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/notification/presentation/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -110,9 +111,25 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   const Spacer(),
-                  const Icon(Icons.mail_lock_outlined, size: 30),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(Icons.mail_lock_outlined, size: 30),
+                  ),
                   const SizedBox(width: 15),
-                  const Icon(Icons.notifications_none_outlined, size: 30),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NotificationScreen(),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.notifications_none_outlined,
+                      size: 30,
+                    ),
+                  ),
                 ],
               ),
 
