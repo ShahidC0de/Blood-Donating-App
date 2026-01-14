@@ -1,6 +1,5 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/blood_request/presentation/widgets/custom_tile.dart';
-import 'package:blood_dontating_app/features/home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class PostedPersonProfle extends StatelessWidget {

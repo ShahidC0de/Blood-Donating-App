@@ -1,3 +1,4 @@
+import 'package:blood_dontating_app/features/blood_donors/presentation/screens/blood_donors_screen.dart';
 import 'package:blood_dontating_app/features/blood_request/presentation/screens/blood_requests_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -147,7 +148,7 @@ final List<Map<String, dynamic>> activitiesIcons = [
     "label": "Blood Donors",
     "subtitle": "120 posts",
     "icon": Icons.bloodtype,
-    "screen": BloodNeededScreen(),
+    "screen": BloodDonorsScreen(),
   },
   {
     "label": "Blood Requests",
