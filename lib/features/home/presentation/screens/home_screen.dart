@@ -2,6 +2,7 @@ import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/activity_widget.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
+import 'package:blood_dontating_app/features/inbox/presentation/screens/inbox_screen.dart';
 import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/notification/presentation/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,12 @@ class _HomeState extends State<Home> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => InboxScreen()),
+                      );
+                    },
                     child: const Icon(Icons.mail_lock_outlined, size: 30),
                   ),
                   const SizedBox(width: 15),
