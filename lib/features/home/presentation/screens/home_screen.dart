@@ -1,5 +1,7 @@
 import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
+import 'package:blood_dontating_app/features/home/presentation/screens/more.dart';
+import 'package:blood_dontating_app/features/home/presentation/screens/search_screen.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/activity_widget.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
 import 'package:blood_dontating_app/features/inbox/presentation/screens/inbox_screen.dart';
@@ -17,11 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [
-    Home(),
-    Center(child: Text('Search ')),
-    Center(child: Text('More')),
-  ];
+  final List<Widget> _screens = [Home(), const SearchScreen(), const More()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
