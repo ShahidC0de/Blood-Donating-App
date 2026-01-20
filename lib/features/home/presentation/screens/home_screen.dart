@@ -5,7 +5,7 @@ import 'package:blood_dontating_app/features/home/presentation/screens/search_sc
 import 'package:blood_dontating_app/features/home/presentation/widgets/activity_widget.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
 import 'package:blood_dontating_app/features/inbox/presentation/screens/inbox_screen.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/notification/presentation/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 

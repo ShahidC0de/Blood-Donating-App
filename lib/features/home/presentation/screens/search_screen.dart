@@ -1,7 +1,7 @@
 import 'package:blood_dontating_app/core/constants/constants.dart';
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:blood_dontating_app/features/home/presentation/widgets/blood_post_widget.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {

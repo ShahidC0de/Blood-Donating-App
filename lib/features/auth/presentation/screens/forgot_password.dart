@@ -1,7 +1,7 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
-import 'package:blood_dontating_app/features/login/presentation/screens/verification_page.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/verification_page.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {

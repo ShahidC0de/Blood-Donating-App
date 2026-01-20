@@ -1,5 +1,5 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
 import 'package:flutter/material.dart';
 
 class InboxScreen extends StatefulWidget {

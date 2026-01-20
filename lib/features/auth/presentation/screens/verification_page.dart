@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/otp_box.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/login_button.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/otp_box.dart';
 import 'package:blood_dontating_app/features/profile/presentation/screens/profile_setup.dart';
 import 'package:flutter/material.dart';
 

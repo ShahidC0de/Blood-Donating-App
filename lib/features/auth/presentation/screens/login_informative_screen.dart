@@ -1,5 +1,5 @@
-import 'package:blood_dontating_app/features/login/presentation/screens/login_screen.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {

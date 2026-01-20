@@ -1,21 +1,16 @@
-import 'package:blood_dontating_app/features/login/presentation/screens/login_screen.dart';
-import 'package:blood_dontating_app/features/login/presentation/screens/verification_page.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/customfield.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/login_button.dart';
-import 'package:blood_dontating_app/features/login/presentation/widgets/login_icon_button.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/forgot_password.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/registration_screen.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/login_button.dart';
+import 'package:blood_dontating_app/features/auth/presentation/widgets/login_icon_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   static route() =>
-      MaterialPageRoute(builder: (context) => const RegistrationScreen());
-  const RegistrationScreen({super.key});
+      MaterialPageRoute(builder: (context) => const LoginScreen());
+  const LoginScreen({super.key});
 
-  @override
-  State<RegistrationScreen> createState() => _RegistrationScreenState();
-}
-
-class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +26,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Create an account',
+              'Welcome to Blood Care',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 24,
@@ -41,21 +36,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const SizedBox(height: 15),
 
             Text(
-              'Fill in the form below to create an account',
+              'Enter your phone number & password to continue',
               style: TextStyle(color: Colors.black, fontSize: 15),
             ),
             const SizedBox(height: 30),
-            Text(
-              'Email',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Customfield(hintText: 'Email Address'),
-            const SizedBox(height: 15),
             Text(
               'Mobile',
               style: TextStyle(
@@ -78,18 +62,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 15),
             Customfield(hintText: 'Password'),
+
             const SizedBox(height: 10),
 
+            Align(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(ForgotPassword.route());
+                },
+                child: Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
             const SizedBox(height: 15),
 
-            AuthButton(
-              onpressed: () {
-                Navigator.of(
-                  context,
-                ).push(VerificationPage.route('+1234567890'));
-              },
-              title: 'Register',
-            ),
+            AuthButton(onpressed: () {}, title: 'Login'),
             const SizedBox(height: 20),
 
             Row(
@@ -131,15 +125,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                   children: [
-                    const TextSpan(text: 'Already have an account? '),
+                    const TextSpan(text: 'Don\'t have an account? '),
                     TextSpan(
-                      text: 'Sign In',
+                      text: 'Sign Up',
                       style: TextStyle(color: Colors.red),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.of(
                             context,
-                          ).pushReplacement(LoginScreen.route());
+                          ).pushReplacement(RegistrationScreen.route());
                         },
                     ),
                   ],
