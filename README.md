@@ -76,3 +76,52 @@ Install FlutterFire CLI (once):
 
 ```bash
 dart pub global activate flutterfire_cli
+flutterfire configure
+This will generate the following files locally (DO NOT COMMIT):
+
+android/app/google-services.json
+
+ios/Runner/GoogleService-Info.plist
+
+lib/firebase_options.dart
+flutter pub get
+flutter run
+### ⚠️ Important Notes
+
+Firebase config files are ignored via .gitignore
+
+Do NOT commit:
+
+google-services.json
+
+GoogleService-Info.plist
+
+firebase_options.dart
+
+Always validate forms before submitting authentication requests
+
+Email must exist and password must match for login
+🧪 Authentication Flow
+Splash Screen
+   ↓
+Check Auth State
+   ↓
+Logged In? ── Yes → Home Screen
+        └─ No  → Login Screen
+
+🧩 State Management
+
+Uses Flutter Riverpod
+
+Authentication state handled via AuthNotifier
+
+UI reacts to loading, success, and error states
+
+👨‍💻 Author
+
+Shahid
+Flutter Developer
+
+📜 License
+
+This project is for educational and portfolio purposes.
