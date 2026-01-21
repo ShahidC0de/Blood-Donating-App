@@ -1,16 +1,78 @@
-# blood_dontating_app
+# 🩸 Blood Donating App (Flutter + Firebase)
 
-A new Flutter project.
+A Flutter-based mobile application designed to connect blood donors with people in need.  
+The app uses **Firebase Authentication** and **Cloud Firestore** for secure user management and data handling.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 Firebase Email & Password Authentication
+- 🔁 Forgot Password (Email reset)
+- 🧾 User Registration & Login
+- 🏠 Auth-based Navigation (Splash → Login → Home)
+- 👤 User Profile Setup
+- 📝 Create Blood Donation Posts
+- 🔔 Snackbar-based Error & Success Feedback
+- 🧠 State Management using **Riverpod**
+- 📱 Cross-platform (Android & iOS)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠 Tech Stack
+
+- **Flutter (Dart)**
+- **Firebase Authentication**
+- **Cloud Firestore**
+- **Riverpod (State Management)**
+- **Material UI**
+
+---
+
+## 📁 Project Structure
+
+lib/
+│
+├── core/
+│ └── utils/
+│ └── snackbar.dart
+│
+├── features/
+│ ├── auth/
+│ │ ├── data/
+│ │ ├── domain/
+│ │ ├── presentation/
+│ │ └── providers/
+│ │
+│ ├── create_post/
+│ │ └── presentation/
+│ │
+│ └── profile/
+│ └── presentation/
+│
+├── firebase_options.dart ❌ (ignored in git)
+└── main.dart
+
+---
+
+## 🔐 Firebase Setup (Required)
+
+This project does **NOT** include Firebase configuration files for security reasons.
+
+After cloning the repository, you **must configure Firebase locally**.
+
+### 1️⃣ Create Firebase Project
+- Go to: https://console.firebase.google.com
+- Create a new project
+- Enable:
+  - **Authentication → Email/Password**
+  - **Cloud Firestore**
+
+---
+
+### 2️⃣ Configure FlutterFire
+
+Install FlutterFire CLI (once):
+
+```bash
+dart pub global activate flutterfire_cli
