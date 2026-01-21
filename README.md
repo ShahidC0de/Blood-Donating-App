@@ -67,6 +67,30 @@ After cloning the repository, you **must configure Firebase locally**.
 - Enable:
   - **Authentication → Email/Password**
   - **Cloud Firestore**
+🧪 Authentication Flow
+Splash Screen
+   ↓
+Check Auth State
+   ↓
+Logged In? ── Yes → Home Screen
+        └─ No  → Login Screen
+
+🧩 State Management
+
+Uses Flutter Riverpod
+
+Authentication state handled via AuthNotifier
+
+UI reacts to loading, success, and error states
+
+👨‍💻 Author
+
+Shahid
+Flutter Developer
+
+📜 License
+
+This project is for educational and portfolio purposes.
 
 ---
 
@@ -101,27 +125,4 @@ firebase_options.dart
 Always validate forms before submitting authentication requests
 
 Email must exist and password must match for login
-🧪 Authentication Flow
-Splash Screen
-   ↓
-Check Auth State
-   ↓
-Logged In? ── Yes → Home Screen
-        └─ No  → Login Screen
 
-🧩 State Management
-
-Uses Flutter Riverpod
-
-Authentication state handled via AuthNotifier
-
-UI reacts to loading, success, and error states
-
-👨‍💻 Author
-
-Shahid
-Flutter Developer
-
-📜 License
-
-This project is for educational and portfolio purposes.
