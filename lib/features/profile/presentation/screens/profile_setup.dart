@@ -363,7 +363,7 @@ class _ProfileSetup2State extends State<ProfileSetup2> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Customfield(hintText: 'Type about yourself', maxLines: 4),
+            Customfield(hintText: 'Type about yourself'),
             Spacer(),
             AuthButton(
               onpressed: () {

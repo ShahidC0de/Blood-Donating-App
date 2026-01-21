@@ -14,6 +14,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Text('Mobile Number', style: AppPallete.subHeadingText),
             const SizedBox(height: 10),
 
-            Customfield(hintText: 'Mobile Number'),
+            Customfield(hintText: 'Mobile Number', controller: emailController),
             Spacer(),
             AuthButton(
               onpressed: () {

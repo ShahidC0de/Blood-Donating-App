@@ -16,6 +16,8 @@ class CreatePostScreen extends StatefulWidget {
 }
 
 class _CreatePostScreenState extends State<CreatePostScreen> {
+  final TextEditingController emailController = TextEditingController();
+
   String? selectedCity;
   String? selectedBloodGroup;
   XFile? _pickedImage;
@@ -85,7 +87,10 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
               ),
               const SizedBox(height: 10),
 
-              Customfield(hintText: 'Title of the Post'),
+              Customfield(
+                hintText: 'Title of the Post',
+                controller: emailController,
+              ),
               const SizedBox(height: 10),
               Text(
                 'What type of blood group do you need?',
@@ -221,10 +226,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
               ),
               const SizedBox(height: 10),
 
-              Customfield(
-                hintText: "Explain patient's condition, disease....",
-                maxLines: 6,
-              ),
+              Customfield(hintText: "Explain patient's condition, disease...."),
               const SizedBox(height: 20),
               AuthButton(onpressed: () {}, title: 'Create Post'),
             ],

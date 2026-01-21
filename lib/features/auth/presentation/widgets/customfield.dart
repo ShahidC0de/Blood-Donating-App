@@ -1,40 +1,56 @@
 import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class Customfield extends StatelessWidget {
-  IconData? icon;
-
-  int maxLines = 1;
   final String hintText;
   final TextEditingController? controller;
-  Customfield({
+  final IconData? icon;
+  final bool obscureText;
+  final String? Function(String?)? validator;
+
+  const Customfield({
     super.key,
     required this.hintText,
     this.controller,
-    this.maxLines = 1,
     this.icon,
+    this.obscureText = false,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // padding: const EdgeInsets.only(left: 15, right: 10, top: 2, bottom: 2),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: AppPallete.borderColor.withValues(alpha: 0.3),
-          width: 1,
+    return TextFormField(
+      controller: controller,
+      obscureText: obscureText,
+      validator: validator,
+      style: TextStyle(color: AppPallete.fieldTextColor, fontSize: 15),
+      decoration: InputDecoration(
+        prefixIcon: icon != null
+            ? Icon(icon, color: AppPallete.borderColor)
+            : null,
+        hintText: hintText,
+        errorStyle: const TextStyle(color: Colors.red, fontSize: 12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 16,
         ),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: TextField(
-        maxLines: maxLines,
-        style: TextStyle(color: AppPallete.fieldTextColor, fontSize: 15),
-        controller: controller,
-        decoration: InputDecoration(
-          prefixIcon: Icon(icon, size: 40, color: AppPallete.borderColor),
-          border: InputBorder.none,
-          hintText: hintText,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: AppPallete.borderColor.withOpacity(0.3),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(color: AppPallete.buttonColor, width: 1.5),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: const BorderSide(color: Colors.red, width: 1.5),
         ),
       ),
     );

@@ -1,4 +1,5 @@
-import 'package:blood_dontating_app/features/auth/auth_providers.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:blood_dontating_app/features/auth/providers/auth_state_provider.dart';
 import 'package:blood_dontating_app/features/auth/presentation/screens/login_informative_screen.dart';
 import 'package:blood_dontating_app/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,8 @@ class SplashScreen extends ConsumerWidget {
     return authState.when(
       data: (user) {
         if (user != null) {
-          // User is logged in
-          return const HomeScreen();
+          return const LoginScreen();
         } else {
-          // User not logged in
           return const OnboardingScreen();
         }
       },
