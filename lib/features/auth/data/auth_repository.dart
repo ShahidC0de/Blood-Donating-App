@@ -38,7 +38,6 @@ class AuthRepository {
           .signInWithEmailAndPassword(email: email, password: password);
       return _mapFirebaseUserToAuthUser(userCredential.user!);
     } on FirebaseAuthException catch (e) {
-      print(e.message.toString());
       throw Exception(e.message);
     } catch (e) {
       throw Exception(e.toString());

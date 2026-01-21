@@ -1,7 +1,6 @@
 import 'package:blood_dontating_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:blood_dontating_app/features/auth/providers/auth_state_provider.dart';
 import 'package:blood_dontating_app/features/auth/presentation/screens/login_informative_screen.dart';
-import 'package:blood_dontating_app/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

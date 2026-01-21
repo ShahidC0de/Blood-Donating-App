@@ -37,7 +37,7 @@ class Customfield extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6),
           borderSide: BorderSide(
-            color: AppPallete.borderColor.withOpacity(0.3),
+            color: AppPallete.borderColor.withValues(alpha: 0.3),
           ),
         ),
         focusedBorder: OutlineInputBorder(

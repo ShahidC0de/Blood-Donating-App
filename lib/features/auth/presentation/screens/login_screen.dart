@@ -42,7 +42,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         },
       );
     });
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
@@ -52,7 +52,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           bottom: 20,
         ),
         child: Form(
-          key: _formKey,
+          key: formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +117,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
               AuthButton(
                 onpressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (formKey.currentState!.validate()) {
                     ref
                         .read(authNotifierProvider.notifier)
                         .loginUser(
