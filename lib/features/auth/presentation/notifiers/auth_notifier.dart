@@ -42,4 +42,20 @@ class AuthNotifier extends AsyncNotifier<AuthUser?> {
     await _repository.signOut();
     state = AsyncData(null);
   }
+
+  Future<void> getVerifiedUser() async {
+    state = AsyncLoading();
+    state = await AsyncValue.guard(() {
+      return _repository.getCurrentUser();
+    });
+  }
+
+  Future<void> sendEmailVerificationAgain() async {
+    state = const AsyncLoading();
+
+    state = await AsyncValue.guard<AuthUser?>(() async {
+      await _repository.sendEmailVerificationAgain();
+      return state.value;
+    });
+  }
 }

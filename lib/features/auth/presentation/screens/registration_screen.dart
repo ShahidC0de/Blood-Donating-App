@@ -1,10 +1,11 @@
 import 'package:blood_dontating_app/core/utils/snackbar.dart';
 import 'package:blood_dontating_app/features/auth/presentation/notifiers/auth_notifier.dart';
+import 'package:blood_dontating_app/features/auth/presentation/screens/email_verification_screen.dart';
 import 'package:blood_dontating_app/features/auth/presentation/screens/login_screen.dart';
-import 'package:blood_dontating_app/features/auth/presentation/screens/verification_page.dart';
 import 'package:blood_dontating_app/features/auth/presentation/widgets/customfield.dart';
 import 'package:blood_dontating_app/features/auth/presentation/widgets/login_button.dart';
 import 'package:blood_dontating_app/features/auth/presentation/widgets/login_icon_button.dart';
+import 'package:blood_dontating_app/features/profile/presentation/screens/profile_setup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,10 +38,11 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
           AppSnackBar.showError(context, error.toString());
         },
         data: (user) {
-          Navigator.pushReplacement(
-            context,
-            VerificationPage.route('+1234567890'),
-          );
+          if (user!.isEmailVerified) {
+            Navigator.pushReplacement(context, ProfileSetup.route());
+          } else {
+            Navigator.pushReplacement(context, EmailVerificationScreen.route());
+          }
         },
       );
     });

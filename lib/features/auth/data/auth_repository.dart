@@ -4,6 +4,31 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthRepository {
   final FirebaseAuth _firebaseAuth;
   AuthRepository(this._firebaseAuth);
+  Future<AuthUser?> getCurrentUser() async {
+    final user = _firebaseAuth.currentUser;
+
+    if (user == null) return null;
+
+    await user.reload();
+    final refreshedUser = _firebaseAuth.currentUser;
+
+    if (refreshedUser != null && refreshedUser.emailVerified) {
+      return _mapFirebaseUserToAuthUser(refreshedUser);
+    }
+
+    return null;
+  }
+
+  Future<void> sendEmailVerificationAgain() async {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) {
+      throw Exception('No user logged In');
+    }
+    if (!user.emailVerified) {
+      await user.sendEmailVerification();
+    }
+  }
+
   AuthUser _mapFirebaseUserToAuthUser(User user) {
     return AuthUser(
       uid: user.uid,
@@ -20,6 +45,7 @@ class AuthRepository {
     try {
       final UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
+      userCredential.user!.sendEmailVerification();
       return _mapFirebaseUserToAuthUser(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);
