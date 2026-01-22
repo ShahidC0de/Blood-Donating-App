@@ -81,7 +81,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 15),
-              Customfield(hintText: 'Email', controller: emailController),
+              Customfield(
+                hintText: 'Email',
+                controller: emailController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Email is Required";
+                  }
+                  if (!value.contains('@')) {
+                    return "Email format incorrect!";
+                  }
+                  return null;
+                },
+              ),
               const SizedBox(height: 15),
 
               Text(
@@ -93,7 +105,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 15),
-              Customfield(hintText: 'Password', controller: passwordController),
+              Customfield(
+                hintText: 'Password',
+                controller: passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Password is Required";
+                  }
+                  if (value.length < 6) {
+                    return "Password must be at least 6 characters";
+                  }
+                  return null;
+                },
+              ),
 
               const SizedBox(height: 10),
 

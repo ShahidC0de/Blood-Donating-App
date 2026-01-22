@@ -2,13 +2,18 @@ import 'package:blood_dontating_app/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class Customfield extends StatelessWidget {
+  final TextInputType? inputType;
   final String hintText;
   final TextEditingController? controller;
   final IconData? icon;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final int? maxlines;
 
   const Customfield({
+    this.maxlines,
+
+    this.inputType,
     super.key,
     required this.hintText,
     this.controller,
@@ -20,6 +25,8 @@ class Customfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxlines,
+      keyboardType: inputType,
       controller: controller,
       obscureText: obscureText,
       validator: validator,
