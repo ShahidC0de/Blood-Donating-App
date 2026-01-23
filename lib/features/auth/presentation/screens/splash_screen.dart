@@ -1,4 +1,3 @@
-import 'package:blood_dontating_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:blood_dontating_app/features/auth/providers/auth_state_provider.dart';
 import 'package:blood_dontating_app/features/auth/presentation/screens/login_informative_screen.dart';
 import 'package:blood_dontating_app/features/profile/presentation/screens/profile_setup.dart';

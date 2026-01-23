@@ -478,12 +478,38 @@ class _ProfileSetup2State extends State<ProfileSetup2> {
                   hintText: 'Type about yourself',
                   maxlines: 8,
                   controller: aboutController,
+                  // ignore: body_might_complete_normally_nullable
+                  validator: (value) {
+                    if (value == null) {
+                      return "All the fields are mendatory ";
+                    } else if (value.length < 8) {
+                      return "Tell us about yourself briefly ";
+                    }
+                  },
                 ),
                 const SizedBox(height: 30),
 
                 AuthButton(
                   onpressed: () {
-                    Navigator.push(context, ProfileSetup3.route());
+                    if (formkey.currentState!.validate() &&
+                        selectedGender != null &&
+                        wantToBeDonor != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileSetup3(
+                            name: widget.name,
+                            phoneNumber: widget.phoneNumber,
+                            bloodGroup: widget.bloodGroup,
+                            selectedCity: widget.city,
+                            age: widget.dateOfBirth,
+                            selectedGender: selectedGender!,
+                            wantToBeDonor: wantToBeDonor!,
+                            aboutUser: aboutController.text,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   title: "Next",
                 ),
@@ -497,9 +523,25 @@ class _ProfileSetup2State extends State<ProfileSetup2> {
 }
 
 class ProfileSetup3 extends StatefulWidget {
-  static route() =>
-      MaterialPageRoute(builder: (context) => const ProfileSetup3());
-  const ProfileSetup3({super.key});
+  final String name;
+  final String phoneNumber;
+  final String bloodGroup;
+  final String selectedCity;
+  final String age;
+  final String selectedGender;
+  final String wantToBeDonor;
+  final String aboutUser;
+  const ProfileSetup3({
+    super.key,
+    required this.name,
+    required this.phoneNumber,
+    required this.bloodGroup,
+    required this.selectedCity,
+    required this.age,
+    required this.selectedGender,
+    required this.wantToBeDonor,
+    required this.aboutUser,
+  });
 
   @override
   State<ProfileSetup3> createState() => _ProfileSetup3State();
